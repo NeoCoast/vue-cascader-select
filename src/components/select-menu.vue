@@ -5,6 +5,7 @@
   >
     <Option
       v-for="({ label, options, value }) in options"
+      :active="value === nextMenu.value"
       :key="value"
       :label="label"
       :onSelect="onSelect"
@@ -15,6 +16,7 @@
 
     <transition name="vcs__fade">
       <SelectMenu
+        ref="childMenu"
         v-if="nextMenu.isOpen"
         :notMain="true"
         :onSelect="onSelect"
@@ -30,9 +32,7 @@ import { validateOptions } from '@/utils/validators';
 
 export default {
   name: 'SelectMenu',
-  components: {
-    Option,
-  },
+  components: { Option },
   props: {
     notMain: {
       type: Boolean,
@@ -53,27 +53,31 @@ export default {
       nextMenu: {
         isOpen: false,
         options: false,
-        label: '',
+        value: '',
       },
     };
   },
   methods: {
-    handleOpenNextMenu(label, options) {
-      if (this.nextMenu.label === label) {
-        this.resetNextMenu();
-      } else {
+    handleOpenNextMenu(value, options) {
+      if (options && this.nextMenu.value !== value) {
         this.nextMenu = {
           isOpen: true,
           options,
-          label,
+          value,
         };
+      } else if (!options) {
+        this.resetNextMenu();
+      }
+
+      if (this.$refs.childMenu) {
+        this.$refs.childMenu.resetNextMenu();
       }
     },
     resetNextMenu() {
       this.nextMenu = {
         isOpen: false,
         options: [],
-        label: '',
+        value: '',
       };
     },
   },
@@ -101,8 +105,9 @@ export default {
 
 .vcs__select-menu__not-main {
   position: absolute;
-  left: 100%;
+  left: calc(100% - 1px);
   top: -1px;
   margin-top: 0;
+  width: auto;
 }
 </style>

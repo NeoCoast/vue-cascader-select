@@ -23,11 +23,13 @@ export default Vue.extend({
 
 <template>
   <div id="app">
-    <vue-cascader-select
-      :options="getTeams"
-      :onSelect="(val) => value = val"
-      :value="value"
-    />
+    <div class="container">
+      <vue-cascader-select
+        :options="getTeams"
+        :onSelect="(val) => value = val"
+        :value="value"
+      />
+    </div>
   </div>
 </template>
 
@@ -40,5 +42,9 @@ export default Vue.extend({
   color: #2c3e50;
   padding: 40px;
   font-size: 12px;
+}
+
+.container {
+  width: 160px;
 }
 </style>

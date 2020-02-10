@@ -72,27 +72,28 @@ export default {
 </script>
 
 <style>
-.vcs {
-  width: 200px;
-}
-
 .vsc__picker {
   position: relative;
+  display: flex;
 }
 
 .vsc__picker input {
+  align-items: center;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  cursor: pointer;
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  border: 1px solid #ccc;
-  text-align: center;
-  border-radius: 4px;
-  cursor: pointer;
   height: 30px;
+  justify-content: space-between;
+  overflow: hidden;
+  padding: 0 30px 0 10px;
+  text-align: center;
   text-align: left;
+  text-overflow: ellipsis;
+  user-select: none;
+  white-space: nowrap;
   width: calc(100% - 20px);
-  padding: 0 10px;
 }
 
 .vcs__arrow-container {
@@ -101,13 +102,13 @@ export default {
   padding-left: 10px;
   margin-left: 10px;
   position: absolute;
-  right: 10px;
+  right: 11px;
   top: 50%;
   transform: translate(0, -50%);
 }
 
 .vcs__fade-enter-active, .vcs__fade-leave-active {
-  transition: opacity .3s;
+  transition: opacity .2s;
 }
 
 .vcs__fade-enter, .vcs__fade-leave-to {

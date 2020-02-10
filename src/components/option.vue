@@ -1,11 +1,13 @@
 <template>
   <div
     class="vcs__option"
+    :class="{ 'vcs__option--active': active }"
+    @mouseenter="$emit('openMenu', value, options)"
     @click="handleSelection"
   >
     <span>{{label}}</span>
     <arrow
-      v-if="!value"
+      v-if="!isLeaf"
       direction="right"
     />
   </div>
@@ -13,28 +15,46 @@
 
 <script>
 import Arrow from '@/components/arrow.vue';
+import { validateOptions } from '@/utils/validators';
 
 export default {
   name: 'Option',
-  components: {
-    Arrow,
+  components: { Arrow },
+  props: {
+    active: {
+      type: Boolean,
+      default: false,
+    },
+    label: String,
+    onSelect: Function,
+    options: {
+      type: Array,
+      validator: value => validateOptions(value),
+    },
+    value: {
+      type: [String, Number],
+    },
+    selectable: {
+      type: Boolean,
+      default: true,
+    },
+    disable: {
+      type: Boolean,
+      default: false,
+    },
   },
-  props: [
-    'label',
-    'onSelect',
-    'options',
-    'value',
-  ],
   methods: {
     handleSelection() {
-      const {
-        label, onSelect, options, value,
-      } = this.$props;
-      if (value) {
+      const { selectable, onSelect, value } = this.$props;
+      if (selectable) {
         onSelect(value);
-      } else {
-        this.$emit('openMenu', label, options);
       }
+    },
+  },
+  computed: {
+    isLeaf() {
+      const { options } = this.$props;
+      return (options || []).length === 0;
     },
   },
 };
@@ -46,10 +66,13 @@ export default {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
-  margin-bottom: 5px;
+  padding: 5px 10px;
   cursor: pointer;
   transition: background 200ms linear;
+}
+
+.vcs__option--active {
+  background-color: #eee;
 }
 
 .vcs__option span {
@@ -57,6 +80,7 @@ export default {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  margin-right: 10px;
 }
 
 .vcs__option:hover {

@@ -1,11 +1,23 @@
+// add selectable
+// add disable
+
 export default [
   {
     label: 'Eastern Conference',
+    value: 'Eastern Conference',
     options: [
       {
         label: 'Southeast',
+        value: 'Southeast',
         options: [
-          { label: 'Atlanta Hawks', value: 'Atlanta Hawks' },
+          {
+            label: 'Atlanta Hawks',
+            value: 'Atlanta Hawks',
+            options: [
+              { label: 'Trae Young', value: 'Trae Young' },
+              { label: 'Clint Capela', value: 'Clint Capela' },
+            ],
+          },
           { label: 'Charlotte Hornets', value: 'Charlotte Hornets' },
           { label: 'Miami Heat', value: 'Miami Heat' },
           { label: 'Orlando Magic', value: 'Orlando Magic' },
@@ -14,6 +26,7 @@ export default [
       },
       {
         label: 'Atlantic',
+        value: 'Atlantic',
         options: [
           { label: 'Boston Celtics', value: 'Boston Celtics' },
           { label: 'Brooklyn Nets', value: 'Brooklyn Nets' },
@@ -24,6 +37,7 @@ export default [
       },
       {
         label: 'Central',
+        value: 'Central',
         options: [
           { label: 'Chicago Bulls', value: 'Chicago Bulls' },
           { label: 'Cleveland Cavaliers', value: 'Cleveland Cavaliers' },
@@ -36,9 +50,11 @@ export default [
   },
   {
     label: 'Western Conference',
+    value: 'Western Conference',
     options: [
       {
         label: 'Southwest',
+        value: 'Southwest',
         options: [
           { label: 'Dallas Mavericks', value: 'Dallas Mavericks' },
           { label: 'Houston Rockets', value: 'Houston Rockets' },
@@ -49,6 +65,7 @@ export default [
       },
       {
         label: 'Northwest',
+        value: 'Northwest',
         options: [
           { label: 'Denver Nuggets', value: 'Denver Nuggets' },
           { label: 'Minnesota Timberwolves', value: 'Minnesota Timberwolves' },
@@ -59,6 +76,7 @@ export default [
       },
       {
         label: 'Pacific',
+        value: 'Pacific',
         options: [
           { label: 'Golden State Warriors', value: 'Golden State Warriors' },
           { label: 'Los Angeles Clippers', value: 'Los Angeles Clippers' },
