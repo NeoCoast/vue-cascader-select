@@ -70,6 +70,8 @@ then
   git push $REPOSITORY_PATH $BRANCH
 fi
 
+echo "Going to ${BASE_BRANCH}"
+git fetch --all && \
 # Checks out the base branch to begin the deploy process.
 git checkout "${BASE_BRANCH:-master}" && \
 
