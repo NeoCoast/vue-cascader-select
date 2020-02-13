@@ -1,7 +1,7 @@
 <script>
 import Vue from 'vue';
-import VueCascaderSelect from '@/vue-cascader-select.vue';
-import teams from '@/utils/teams';
+import VueCascaderSelect from './vue-cascader-select.vue';
+import teams from './utils/teams';
 
 export default Vue.extend({
   name: 'ServeDev',

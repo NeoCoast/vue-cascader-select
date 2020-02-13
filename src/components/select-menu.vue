@@ -27,8 +27,8 @@
 </template>
 
 <script>
-import Option from '@/components/option.vue';
-import { validateOptions } from '@/utils/validators';
+import Option from './option.vue';
+import { validateOptions } from '../utils/validators';
 
 export default {
   name: 'SelectMenu',

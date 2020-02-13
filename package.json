@@ -6,6 +6,8 @@
     "serve": "vue-cli-service serve src/serve-dev.js",
     "build": "cross-env NODE_ENV=production rollup --config build/rollup.config.js",
     "lint": "vue-cli-service lint",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs",
     "build:es": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format es",
     "build:ssr": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format cjs",
     "build:unpkg": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format iife"
@@ -41,7 +43,8 @@
     "rollup-plugin-terser": "^5.1.3",
     "rollup-plugin-vue": "^5.1.5",
     "vue": "^2.6.10",
-    "vue-template-compiler": "^2.6.10"
+    "vue-template-compiler": "^2.6.10",
+    "vuepress": "^1.0.0-rc.1"
   },
   "peerDependencies": {
     "vue": "^2.6.10"

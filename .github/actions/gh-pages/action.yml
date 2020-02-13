@@ -1,0 +1,8 @@
+name: 'Deploy vuepress to specified branch'
+description: 'Buildi and deploy vuepress to GitHub Pages.'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+branding:
+  icon: 'git-commit'
+  color: 'green'

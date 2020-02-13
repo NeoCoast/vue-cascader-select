@@ -29,9 +29,9 @@
 </template>
 
 <script>
-import Arrow from '@/components/arrow.vue';
-import SelectMenu from '@/components/select-menu.vue';
-import { validateOptions } from '@/utils/validators';
+import Arrow from './components/arrow.vue';
+import SelectMenu from './components/select-menu.vue';
+import { validateOptions } from './utils/validators';
 
 export default {
   name: 'VueCascaderSelect',
