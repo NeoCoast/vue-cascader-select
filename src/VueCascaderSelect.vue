@@ -84,6 +84,7 @@ export default {
   cursor: pointer;
   display: flex;
   flex-direction: row;
+  font-size: inherit;
   height: 30px;
   justify-content: space-between;
   overflow: hidden;

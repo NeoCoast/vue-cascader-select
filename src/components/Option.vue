@@ -1,7 +1,10 @@
 <template>
   <div
     class="vcs__option"
-    :class="{ 'vcs__option--active': active }"
+    :class="{
+      'vcs__option--active': active,
+      'vcs__option--disabled': disabled,
+    }"
     @mouseenter="$emit('openMenu', value, options)"
     @click="handleSelection"
   >
@@ -38,15 +41,21 @@ export default {
       type: Boolean,
       default: true,
     },
-    disable: {
+    disabled: {
       type: Boolean,
       default: false,
     },
   },
   methods: {
     handleSelection() {
-      const { selectable, onSelect, value } = this.$props;
-      if (selectable) {
+      const {
+        disabled,
+        selectable,
+        onSelect,
+        value,
+      } = this.$props;
+
+      if (selectable && !disabled) {
         onSelect(value);
       }
     },

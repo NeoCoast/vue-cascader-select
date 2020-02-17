@@ -1,10 +1,8 @@
-// add selectable
-// add disable
-
 export default [
   {
     label: 'Eastern Conference',
     value: 'Eastern Conference',
+    disabled: true,
     options: [
       {
         label: 'Southeast',
@@ -51,6 +49,7 @@ export default [
   {
     label: 'Western Conference',
     value: 'Western Conference',
+    disabled: true,
     options: [
       {
         label: 'Southwest',

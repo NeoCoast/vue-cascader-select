@@ -31,6 +31,19 @@ describe('Option.vue', () => {
     expect(wrapper.classes('vcs__option--active')).toBe(true);
   });
 
+  it('shouldn\'t be disabled', () => {
+    let wrapper = mountWithProps({});
+    expect(wrapper.classes('vcs__option--disabled')).toBe(false);
+
+    wrapper = mountWithProps({ disabled: false });
+    expect(wrapper.classes('vcs__option--disabled')).toBe(false);
+  });
+
+  it('should be disabled', () => {
+    const wrapper = mountWithProps({ disabled: true });
+    expect(wrapper.classes('vcs__option--disabled')).toBe(true);
+  });
+
   it('should render an Arrow', () => {
     const wrapper = mountWithProps({
       options: [{ label: 'NeoCoast', value: 'neocoast' }],
@@ -68,6 +81,17 @@ describe('Option.vue', () => {
   it('shouldn\'t call onSelect on click if the option isn\'t selectable', () => {
     const onSelect = jest.fn();
     const wrapper = mountWithProps({ onSelect, selectable: false });
+
+    wrapper.trigger('click');
+    wrapper.vm.$nextTick(() => {
+      expect(onSelect).not.toBeCalled();
+      expect(onSelect).toBeCalledTimes(0);
+    });
+  });
+
+  it('shouldn\'t call onSelect on click if the option is disabled', () => {
+    const onSelect = jest.fn();
+    const wrapper = mountWithProps({ onSelect, disabled: true });
 
     wrapper.trigger('click');
     wrapper.vm.$nextTick(() => {

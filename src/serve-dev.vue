@@ -41,7 +41,7 @@ export default Vue.extend({
   text-align: center;
   color: #2c3e50;
   padding: 40px;
-  font-size: 12px;
+  font-size: 1rem;
 }
 
 .container {

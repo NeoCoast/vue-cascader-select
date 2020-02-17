@@ -4,13 +4,15 @@
     :class="{ 'vcs__select-menu__not-main': notMain }"
   >
     <Option
-      v-for="({ label, options, value }) in options"
-      :active="value === nextMenu.value"
-      :key="value"
-      :label="label"
+      v-for="option in options"
+      :active="option.value === nextMenu.value"
+      :disabled="option.disabled"
+      :key="option.value"
+      :label="option.label"
       :onSelect="onSelect"
-      :options="options"
-      :value="value"
+      :options="option.options"
+      :selectable="option.selectable"
+      :value="option.value"
       @openMenu="handleOpenNextMenu"
     />
 
