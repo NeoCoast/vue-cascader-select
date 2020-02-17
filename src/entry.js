@@ -1,4 +1,4 @@
-import component from './vue-cascader-select.vue';
+import component from './VueCascaderSelect.vue';
 
 // install function executed by Vue.use()
 const install = function installVueCascaderSelect(Vue) {

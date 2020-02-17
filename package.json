@@ -6,11 +6,13 @@
     "serve": "vue-cli-service serve src/serve-dev.js",
     "build": "cross-env NODE_ENV=production rollup --config build/rollup.config.js",
     "lint": "vue-cli-service lint",
-    "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs",
     "build:es": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format es",
     "build:ssr": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format cjs",
-    "build:unpkg": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format iife"
+    "build:unpkg": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format iife",
+    "docs:build": "vuepress build docs",
+    "docs:dev": "vuepress dev docs",
+    "test:unit": "vue-cli-service test:unit",
+    "codecov": "codecov"
   },
   "main": "dist/vue-cascader-select.ssr.js",
   "module": "dist/vue-cascader-select.esm.js",
@@ -30,9 +32,12 @@
     "@rollup/plugin-replace": "^2.2.1",
     "@vue/cli-plugin-babel": "^4.1.2",
     "@vue/cli-plugin-eslint": "^4.1.2",
+    "@vue/cli-plugin-unit-jest": "^4.2.2",
     "@vue/cli-service": "^4.1.0",
     "@vue/eslint-config-airbnb": "^4.0.0",
+    "@vue/test-utils": "1.0.0-beta.31",
     "babel-eslint": "^10.0.3",
+    "codecov": "^3.6.5",
     "cross-env": "^6.0.3",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
@@ -53,7 +58,7 @@
     "node": ">=8"
   },
   "gitHooks": {
-    "pre-commit": "lint-staged"
+    "pre-commit": "npm run test:unit && lint-staged"
   },
   "lint-staged": {
     "*.{js,vue}": [

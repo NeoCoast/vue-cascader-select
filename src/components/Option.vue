@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import Arrow from './arrow.vue';
+import Arrow from './Arrow.vue';
 import { validateOptions } from '../utils/validators';
 
 export default {

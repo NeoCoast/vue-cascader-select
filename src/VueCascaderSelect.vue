@@ -1,7 +1,7 @@
 <template>
   <div class="vcs">
     <div
-      class="vsc__picker"
+      class="vcs__picker"
       @click="isOpen = !isOpen"
     >
       <input
@@ -29,8 +29,8 @@
 </template>
 
 <script>
-import Arrow from './components/arrow.vue';
-import SelectMenu from './components/select-menu.vue';
+import Arrow from './components/Arrow.vue';
+import SelectMenu from './components/SelectMenu.vue';
 import { validateOptions } from './utils/validators';
 
 export default {
@@ -72,12 +72,12 @@ export default {
 </script>
 
 <style>
-.vsc__picker {
+.vcs__picker {
   position: relative;
   display: flex;
 }
 
-.vsc__picker input {
+.vcs__picker input {
   align-items: center;
   border-radius: 4px;
   border: 1px solid #ccc;

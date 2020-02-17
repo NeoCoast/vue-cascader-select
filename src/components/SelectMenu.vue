@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import Option from './option.vue';
+import Option from './Option.vue';
 import { validateOptions } from '../utils/validators';
 
 export default {
@@ -44,7 +44,7 @@ export default {
     },
     options: {
       type: Array,
-      required: true,
+      default: () => [],
       validator: value => validateOptions(value),
     },
   },
@@ -65,8 +65,6 @@ export default {
           options,
           value,
         };
-      } else if (!options) {
-        this.resetNextMenu();
       }
 
       if (this.$refs.childMenu) {

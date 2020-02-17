@@ -1,6 +1,6 @@
 <script>
 import Vue from 'vue';
-import VueCascaderSelect from './vue-cascader-select.vue';
+import VueCascaderSelect from './VueCascaderSelect.vue';
 import teams from './utils/teams';
 
 export default Vue.extend({
