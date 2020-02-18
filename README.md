@@ -18,14 +18,38 @@
   <a href="https://codecov.io/gh/Tintef/vue-cascader-select">
     <img src="https://codecov.io/gh/Tintef/vue-cascader-select/branch/master/graph/badge.svg"/>
   </a>
-  <a href="http://hits.dwyl.com/Tintef/vue-cascader-select">
-    <img src="http://hits.dwyl.com/Tintef/vue-cascader-select.svg"/>
-  </a>
 </p>
 
 # Vue Cascader Select
 
+## Installation
 
+```bash
+npm install --save vue-cascader-select@latest
+or
+yarn add vue-cascader-select@latest
+```
+
+## Usage
+
+```js
+import Vue from 'vue'
+import VueCascaderSelect from 'vue-cascader-select';
+
+Vue.use(VueCascaderSelect);
+```
+
+```
+<template>
+  <vue-cascader-select
+    :options="options"
+    :onSelect="(val) => value = val"
+    :value="value"
+  />
+</template>
+```
+
+For more information see the [complete docs](https://tintef.github.io/vue-cascader-select/)
 
 <div>
   Icons made by <a href="https://www.flaticon.com/authors/flat-icons" title="Flat Icons">Flat Icons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
