@@ -11,6 +11,7 @@ La forma más fácil de personalizar el componente es sobrescribir los estilos p
 | .vcs__option--active   | Estilos para la opción activa                        |
 | .vcs__option--disabled | Estilos para las opciones que están deshabilitadas   |
 | .vcs__arrow            | Estilos para todas las flechas del cascader select   |
+| .vcs__cross button     | Estilos para la cruz                                 |
 
 ## Ejemplo
 

@@ -1,7 +1,24 @@
 {
   "name": "vue-cascader-select",
-  "version": "0.0.1",
-  "description": "",
+  "version": "1.0.0",
+  "description": "Cascader Select for Vue",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NeoCoast/vue-cascader-select.git"
+  },
+  "author": "Nicolás Tinte",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NeoCoast/vue-cascader-select/issues"
+  },
+  "homepage": "https://github.com/NeoCoast/vue-cascader-select#readme",
+  "keywords": [
+    "vue",
+    "cascader",
+    "select",
+    "dropdown",
+    "cascader-select"
+  ],
   "scripts": {
     "serve": "vue-cli-service serve src/serve-dev.js",
     "build": "cross-env NODE_ENV=production rollup --config build/rollup.config.js",
@@ -10,7 +27,7 @@
     "build:ssr": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format cjs",
     "build:unpkg": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format iife",
     "docs:build": "vuepress build docs",
-    "docs:dev": "vuepress dev docs",
+    "docs:dev": "DEBUG=true vuepress dev docs",
     "test:unit": "vue-cli-service test:unit",
     "codecov": "codecov"
   },

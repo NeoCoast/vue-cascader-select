@@ -11,6 +11,7 @@ The easiest way to customize the component is to override the default styles. Th
 | .vcs__option--active   | Styles for the active option                         |
 | .vcs__option--disabled | Styles for disabled options                          |
 | .vcs__arrow            | Styles for all arrows across the cascader select     |
+| .vcs__cross button     | Styles for the cross                                 |
 
 ## Example
 

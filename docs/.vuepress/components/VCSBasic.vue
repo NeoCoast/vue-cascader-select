@@ -2,6 +2,7 @@
   <div class="vcs-basic">
     <VueCascaderSelect
       :onSelect="(val) => value = val"
+      :onClear="(val) => value = ''"
       :options="options"
       :placeholder="placeholder"
       :value="value"

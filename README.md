@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/NeoCoast/vue-cascader-select" target="_blank">
-    <img width="250"src="./public/logo.svg">
+    <img width="250"src="https://raw.githubusercontent.com/NeoCoast/vue-cascader-select/master/public/logo.png">
   </a>
 </p>
 
@@ -33,7 +33,7 @@ yarn add vue-cascader-select@latest
 ## Usage
 
 ```js
-import Vue from 'vue'
+import Vue from 'vue';
 import VueCascaderSelect from 'vue-cascader-select';
 
 Vue.use(VueCascaderSelect);
@@ -43,6 +43,7 @@ Vue.use(VueCascaderSelect);
 <template>
   <vue-cascader-select
     :options="options"
+    :onClear="(val) => value = ''"
     :onSelect="(val) => value = val"
     :value="value"
   />

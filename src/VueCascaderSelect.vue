@@ -101,6 +101,7 @@ export default {
   align-items: center;
   border-radius: 4px;
   border: 1px solid #ccc;
+  box-shadow: none;
   cursor: pointer;
   display: flex;
   flex-direction: row;
@@ -114,7 +115,13 @@ export default {
   text-overflow: ellipsis;
   user-select: none;
   white-space: nowrap;
-  width: calc(100% - 20px);
+  width: 100%;
+  -webkit-appearance: none;
+}
+
+.vcs__picker input:disabled {
+  background: inherit;
+  opacity: 1;
 }
 
 .vcs__arrow-container {
@@ -124,8 +131,8 @@ export default {
   margin-left: 10px;
   position: absolute;
   right: 11px;
-  top: 42%;
-  transform: translate(0, -42%);
+  top: 50%;
+  transform: translate(0, -50%);
 }
 
 .vcs__cross {
@@ -136,6 +143,7 @@ export default {
 }
 
 .vcs__cross button {
+  -webkit-appearance: none;
   background: none;
   border: none;
   color: #bbb;
@@ -143,6 +151,7 @@ export default {
   font-size: 18px;
   opacity: 0.7;
   outline: none;
+  padding: 0 3px;
   transition: opacity 0.2s linear;
 }
 
