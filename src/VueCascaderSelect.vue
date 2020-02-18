@@ -1,5 +1,5 @@
 <template>
-  <div class="vcs">
+  <div class="vcs" v-click-outside="() => { isOpen = false; }">
     <div
       class="vcs__picker"
       @click="isOpen = !isOpen"
@@ -37,6 +37,7 @@
 </template>
 
 <script>
+import vClickOutside from 'v-click-outside';
 import Arrow from './components/Arrow.vue';
 import SelectMenu from './components/SelectMenu.vue';
 import { validateOptions } from './utils/validators';
@@ -46,6 +47,9 @@ export default {
   components: {
     Arrow,
     SelectMenu,
+  },
+  directives: {
+    clickOutside: vClickOutside.directive,
   },
   props: {
     placeholder: {

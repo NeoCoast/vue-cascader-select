@@ -36,13 +36,17 @@ const options = [
   },
 ];
 
+const defaultProps = {
+  options,
+  onClear: jest.fn(),
+  onSelect: jest.fn(),
+  value: '',
+};
+
 const mountWithProps = props => (
   mount(VueCascaderSelect, {
     propsData: {
-      options,
-      onClear: jest.fn(),
-      onSelect: jest.fn(),
-      value: '',
+      ...defaultProps,
       ...props,
     },
   })

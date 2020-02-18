@@ -23,7 +23,9 @@
     "src/**/*.vue",
     "!src/serve-dev.*"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "v-click-outside": "^3.0.1"
+  },
   "devDependencies": {
     "@babel/core": "^7.7.7",
     "@babel/preset-env": "^7.7.7",
