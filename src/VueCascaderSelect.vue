@@ -10,6 +10,14 @@
         :placeholder="placeholder"
       />
 
+      <transition name="vcs__fade">
+        <div v-if="value" class="vcs__cross">
+          <button @click.stop="onClear">
+            &times;
+          </button>
+        </div>
+      </transition>
+
       <div class="vcs__arrow-container">
         <Arrow
           borderColor="#ccc"
@@ -48,6 +56,10 @@ export default {
       type: Array,
       required: true,
       validator: value => validateOptions(value),
+    },
+    onClear: {
+      type: Function,
+      required: true,
     },
     onSelect: {
       type: Function,
@@ -92,7 +104,7 @@ export default {
   height: 30px;
   justify-content: space-between;
   overflow: hidden;
-  padding: 0 30px 0 10px;
+  padding: 0 55px 0 10px;
   text-align: center;
   text-align: left;
   text-overflow: ellipsis;
@@ -110,6 +122,28 @@ export default {
   right: 11px;
   top: 42%;
   transform: translate(0, -42%);
+}
+
+.vcs__cross {
+  position: absolute;
+  right: 33px;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+.vcs__cross button {
+  background: none;
+  border: none;
+  color: #bbb;
+  cursor: pointer;
+  font-size: 18px;
+  opacity: 0.7;
+  outline: none;
+  transition: opacity 0.2s linear;
+}
+
+.vcs__cross button:hover {
+  opacity: 1;
 }
 
 .vcs__fade-enter-active, .vcs__fade-leave-active {

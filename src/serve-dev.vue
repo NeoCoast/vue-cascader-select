@@ -27,6 +27,7 @@ export default Vue.extend({
       <vue-cascader-select
         :options="getTeams"
         :onSelect="(val) => value = val"
+        :onClear="(val) => value = ''"
         :value="value"
       />
     </div>
@@ -45,6 +46,6 @@ export default Vue.extend({
 }
 
 .container {
-  width: 160px;
+  width: 250px;
 }
 </style>

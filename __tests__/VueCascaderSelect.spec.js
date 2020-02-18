@@ -40,6 +40,7 @@ const mountWithProps = props => (
   mount(VueCascaderSelect, {
     propsData: {
       options,
+      onClear: jest.fn(),
       onSelect: jest.fn(),
       value: '',
       ...props,
@@ -119,6 +120,21 @@ describe('VueCascaderSelect.vue', () => {
         expect(wrapper.contains(SelectMenu)).toBe(false);
         done();
       });
+    });
+  });
+
+  it('shouldn\'t have a cross', () => {
+    expect(wrapper.classes('vcs__cross')).toBe(false);
+  });
+
+  it('shoud have a cross if there\'s a value', (done) => {
+    wrapper.setProps({ value: 'test' });
+
+    wrapper.vm.$nextTick(() => {
+      const cross = wrapper.find('.vcs__cross');
+      expect(cross.contains('button')).toBe(true);
+      expect(cross.find('button').text()).toBe('×');
+      done();
     });
   });
 });
