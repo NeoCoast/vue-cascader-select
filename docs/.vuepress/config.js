@@ -1,5 +1,13 @@
 module.exports = {
   base: '/vue-cascader-select/',
+  head: [
+    ['link', { rel: "apple-touch-icon", sizes: "180x180", href: "apple-touch-icon.png" }],
+    ['link', { rel: "icon", type: "image/png", sizes: "32x32", href: "favicon-32x32.png" }],
+    ['link', { rel: "icon", type: "image/png", sizes: "16x16", href: "favicon-16x16.png" }],
+    ['link', { rel: "shortcut icon", href: "favicon.ico" }],
+    ['meta', { name: "msapplication-TileColor", content: "#3a0839" }],
+    ['meta', { name: "theme-color", content: "#ffffff" }],
+  ],
 
   locales: {
     '/': {
@@ -15,6 +23,7 @@ module.exports = {
   },
 
   themeConfig: {
+    logo: '/logo.svg',
     editLinks: true,
     search: false,
     locales: {
@@ -40,6 +49,7 @@ module.exports = {
             children: [
               '/guide/installation',
               '/guide/basic_usage',
+              '/guide/theming',
             ],
           },
         ],
@@ -66,6 +76,7 @@ module.exports = {
             children: [
               '/es/guide/installation',
               '/es/guide/basic_usage',
+              '/es/guide/theming',
             ],
           },
         ],

@@ -72,6 +72,10 @@ export default {
 </script>
 
 <style>
+.vcs {
+  position: relative;
+}
+
 .vcs__picker {
   position: relative;
   display: flex;
@@ -104,8 +108,8 @@ export default {
   margin-left: 10px;
   position: absolute;
   right: 11px;
-  top: 50%;
-  transform: translate(0, -50%);
+  top: 42%;
+  transform: translate(0, -42%);
 }
 
 .vcs__fade-enter-active, .vcs__fade-leave-active {

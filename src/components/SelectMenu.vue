@@ -101,6 +101,11 @@ export default {
   text-align: left;
   width: 100%;
   background: white;
+
+  position: absolute;
+  left: 0;
+  top: calc(100% + 2px);
+  margin-top: 0;
 }
 
 .vcs__select-menu__not-main {

@@ -1,6 +1,6 @@
 <template>
   <i
-    class="vsc__arrow"
+    class="vcs__arrow"
     :class="direction"
     :style="{ borderColor }"
   />
@@ -20,7 +20,7 @@ export default {
 </script>
 
 <style>
-.vsc__arrow {
+.vcs__arrow {
   border-radius: 1px;
   border: solid #ccc;
   border-width: 0 3px 3px 0;
@@ -32,19 +32,19 @@ export default {
   font-size: 12px;
 }
 
-.vsc__arrow.up {
+.vcs__arrow.up {
   transform: rotate(-135deg);
   -webkit-transform: rotate(-135deg);
   margin-bottom: -2px;
 }
 
-.vsc__arrow.down {
+.vcs__arrow.down {
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
   margin-bottom: 1px;
 }
 
-.vsc__arrow.right {
+.vcs__arrow.right {
   transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
 }
