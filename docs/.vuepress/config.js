@@ -39,7 +39,7 @@ module.exports = {
         },
         nav: [
           { text: 'Guide', link: '/guide/' },
-          { text: 'Github', link: 'https://github.com/Tintef/vue-cascader-select' },
+          { text: 'Github', link: 'https://github.com/NeoCoast/vue-cascader-select' },
         ],
         sidebar: [
           {
@@ -66,7 +66,7 @@ module.exports = {
         },
         nav: [
           { text: 'Guía', link: '/es/guide/' },
-          { text: 'Github', link: 'https://github.com/Tintef/vue-cascader-select' },
+          { text: 'Github', link: 'https://github.com/NeoCoast/vue-cascader-select' },
         ],
         sidebar: [
           {
