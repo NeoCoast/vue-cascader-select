@@ -1,6 +1,6 @@
 {
   "name": "vue-cascader-select",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Cascader Select for Vue",
   "repository": {
     "type": "git",
@@ -11,7 +11,7 @@
   "bugs": {
     "url": "https://github.com/NeoCoast/vue-cascader-select/issues"
   },
-  "homepage": "https://github.com/NeoCoast/vue-cascader-select#readme",
+  "homepage": "https://neocoast.github.io/vue-cascader-select/",
   "keywords": [
     "vue",
     "cascader",
