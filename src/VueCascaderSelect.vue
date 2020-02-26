@@ -12,7 +12,7 @@
 
       <transition name="vcs__fade">
         <div v-if="value" class="vcs__cross">
-          <button @click.stop="onClear">
+          <button @click.stop="$emit('clear')">
             &times;
           </button>
         </div>
@@ -29,7 +29,7 @@
     <transition name="vcs__fade">
       <SelectMenu
         v-if="isOpen"
-        :onSelect="onSelect"
+        :onSelect="handleSelect"
         :options="options"
       />
     </transition>
@@ -61,14 +61,6 @@ export default {
       required: true,
       validator: value => validateOptions(value),
     },
-    onClear: {
-      type: Function,
-      required: true,
-    },
-    onSelect: {
-      type: Function,
-      required: true,
-    },
     value: {
       type: String,
       required: true,
@@ -78,6 +70,11 @@ export default {
     return {
       isOpen: false,
     };
+  },
+  methods: {
+    handleSelect(value) {
+      this.$emit('select', value);
+    },
   },
   watch: {
     value() {

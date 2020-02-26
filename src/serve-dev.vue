@@ -26,8 +26,8 @@ export default Vue.extend({
     <div class="container">
       <vue-cascader-select
         :options="getTeams"
-        :onSelect="(val) => value = val"
-        :onClear="(val) => value = ''"
+        @select="(val) => value = val"
+        @clear="(val) => value = ''"
         :value="value"
       />
     </div>

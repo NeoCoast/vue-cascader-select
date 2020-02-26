@@ -1,5 +1,6 @@
 import { mount } from '@vue/test-utils';
 import Arrow from '@/components/Arrow.vue';
+import Option from '@/components/Option.vue';
 import SelectMenu from '@/components/SelectMenu.vue';
 import VueCascaderSelect from '@/VueCascaderSelect.vue';
 
@@ -38,8 +39,6 @@ const options = [
 
 const defaultProps = {
   options,
-  onClear: jest.fn(),
-  onSelect: jest.fn(),
   value: '',
 };
 
@@ -139,6 +138,36 @@ describe('VueCascaderSelect.vue', () => {
       expect(cross.contains('button')).toBe(true);
       expect(cross.find('button').text()).toBe('×');
       done();
+    });
+  });
+
+  it('the cross should emit a "clear" event', (done) => {
+    wrapper.setProps({ value: 'test' });
+
+    wrapper.vm.$nextTick(() => {
+      const cross = wrapper.find('.vcs__cross');
+      cross.find('button').trigger('click');
+
+      wrapper.vm.$nextTick(() => {
+        expect(wrapper.emitted('clear')).toBeTruthy();
+        expect(wrapper.emitted('clear').length).toBe(1);
+        done();
+      });
+    });
+  });
+
+  it('selecting should emit a "select" event', (done) => {
+    wrapper.find('.vcs__picker').trigger('click');
+
+    wrapper.vm.$nextTick(() => {
+      const opts = wrapper.findAll(Option);
+      opts.at(0).trigger('click');
+
+      wrapper.vm.$nextTick(() => {
+        expect(wrapper.emitted('select')).toBeTruthy();
+        expect(wrapper.emitted('select').length).toBe(1);
+        done();
+      });
     });
   });
 });
