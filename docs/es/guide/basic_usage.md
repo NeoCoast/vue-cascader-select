@@ -60,7 +60,7 @@ Veamos un ejemplo:
 
 ## Events
 
-| Nombre      | Parámetros     | Cuándo?                                 |
+| Nombre      | Parámetros     | ¿Cuándo?                                |
 |-------------|----------------|:---------------------------------------:|
 | clear       |                | Al clickear en el ícono de la cruz      |
 | select      | value          | Al seleccionar una opción               |
