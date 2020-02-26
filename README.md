@@ -43,8 +43,8 @@ Vue.use(VueCascaderSelect);
 <template>
   <vue-cascader-select
     :options="options"
-    :onClear="(val) => value = ''"
-    :onSelect="(val) => value = val"
+    @clear="(val) => value = ''"
+    @select="(val) => value = val"
     :value="value"
   />
 </template>
@@ -52,6 +52,6 @@ Vue.use(VueCascaderSelect);
 
 For more information see the [complete docs](https://NeoCoast.github.io/vue-cascader-select/)
 
-<div>
+<p align="center">
   Icons made by <a href="https://www.flaticon.com/authors/flat-icons" title="Flat Icons">Flat Icons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
-</div>
+<p align="center">

@@ -1,8 +1,8 @@
 <template>
   <div class="vcs-basic">
     <VueCascaderSelect
-      :onSelect="(val) => value = val"
-      :onClear="(val) => value = ''"
+      @select="(val) => value = val"
+      @clear="(val) => value = ''"
       :options="options"
       :placeholder="placeholder"
       :value="value"

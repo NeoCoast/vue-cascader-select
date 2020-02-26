@@ -6,8 +6,8 @@ Let's see the most basic usage of the component:
 <template>
   <vue-cascader-select
     :options="options"
-    :onClear="(val) => value = ''"
-    :onSelect="(val) => value = val"
+    @clear="(val) => value = ''"
+    @select="(val) => value = val"
     :value="value"
   />
 </template>
@@ -22,7 +22,6 @@ This will render the `cascader-select` with the given options, and allow the use
 | Name        | Type     | Required | Default value      |
 |-------------|----------|:--------:|--------------------|
 | options     | Array    | ✅       |                    |
-| onSelect    | Function | ✅       |                    |
 | placeholder | String   |          | 'Please select...' |
 | value       | String   | ✅       |                    |
 
@@ -56,3 +55,10 @@ Let's see an example:
   },
 ];
 ```
+
+## Events
+
+| Name        | Parameters     | When?                                   |
+|-------------|----------------|:---------------------------------------:|
+| clear       |                | Emitted when clicking on the cross icon |
+| select      | value          | Emitted when an option is selected      |
