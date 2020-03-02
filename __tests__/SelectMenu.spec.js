@@ -41,6 +41,7 @@ const mountWithProps = props => (
       onSelect: jest.fn(),
       ...props,
     },
+    attachToDocument: true,
   })
 );
 
@@ -116,6 +117,97 @@ describe('SelectMenu.vue', () => {
             done();
           });
         });
+      });
+    });
+  });
+
+  describe('should be able to navigate with keyboard', () => {
+    let wrapper;
+    beforeEach(() => {
+      wrapper = mountWithProps({ options, withKeyboard: true });
+    });
+
+    it('should open and focus first option', () => {
+      const optionsWrapper = wrapper.findAll(Option);
+      expect(optionsWrapper.at(0).element).toBe(document.activeElement);
+    });
+
+    it('should go to next option', (done) => {
+      const optionsWrapper = wrapper.findAll(Option);
+
+      optionsWrapper.at(0).trigger('keydown.down');
+      wrapper.vm.$nextTick(() => {
+        expect(optionsWrapper.at(1).element).toBe(document.activeElement);
+        done();
+      });
+    });
+
+    it('should go to previous option', (done) => {
+      const optionsWrapper = wrapper.findAll(Option);
+
+      optionsWrapper.at(0).trigger('keydown.down');
+      wrapper.vm.$nextTick(() => {
+        optionsWrapper.at(1).trigger('keydown.up');
+        wrapper.vm.$nextTick(() => {
+          expect(optionsWrapper.at(0).element).toBe(document.activeElement);
+          done();
+        });
+      });
+    });
+
+    it('should open next menu', (done) => {
+      const option = wrapper.find(Option);
+
+      option.trigger('keydown.right');
+      wrapper.vm.$nextTick(() => {
+        expect(wrapper.findAll(SelectMenu).length).toBe(2);
+        done();
+      });
+    });
+
+    it('should close next menu', (done) => {
+      const option = wrapper.find(Option);
+
+      option.trigger('keydown.right');
+      wrapper.vm.$nextTick(() => {
+        const nextMenu = wrapper.findAll(SelectMenu).at(1);
+
+        nextMenu.find(Option).trigger('keydown.left');
+        wrapper.vm.$nextTick(() => {
+          expect(wrapper.findAll(SelectMenu).length).toBe(1);
+          wrapper.find(SelectMenu).find(Option).trigger('keydown.left');
+          done();
+        });
+      });
+    });
+
+    it('should go back to first option', (done) => {
+      const optionsWrapper = wrapper.findAll(Option);
+
+      optionsWrapper.at(0).trigger('keydown.down');
+      wrapper.vm.$nextTick(() => {
+        expect(optionsWrapper.at(1).element).toBe(document.activeElement);
+        optionsWrapper.at(1).trigger('keydown.down');
+
+        wrapper.vm.$nextTick(() => {
+          expect(optionsWrapper.at(2).element).toBe(document.activeElement);
+          optionsWrapper.at(2).trigger('keydown.down');
+
+          wrapper.vm.$nextTick(() => {
+            expect(optionsWrapper.at(0).element).toBe(document.activeElement);
+            done();
+          });
+        });
+      });
+    });
+
+    it('should go back the last option', (done) => {
+      const optionsWrapper = wrapper.findAll(Option);
+
+      optionsWrapper.at(0).trigger('keydown.up');
+      wrapper.vm.$nextTick(() => {
+        expect(optionsWrapper.at(2).element).toBe(document.activeElement);
+        done();
       });
     });
   });

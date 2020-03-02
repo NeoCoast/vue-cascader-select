@@ -105,11 +105,7 @@ export default {
         this.$parent.resetNextMenu();
       }
     },
-    resetNextMenu(ev) {
-      if (ev) {
-        ev.preventDefault();
-      }
-
+    resetNextMenu() {
       this.nextMenu = {
         isOpen: false,
         options: [],

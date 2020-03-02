@@ -113,6 +113,20 @@ describe('VueCascaderSelect.vue', () => {
     });
   });
 
+  it('pressing escape should close the SelectMenu', (done) => {
+    wrapper.find('.vcs__picker').trigger('click');
+
+    wrapper.vm.$nextTick(() => {
+      expect(wrapper.contains(SelectMenu)).toBe(true);
+
+      wrapper.trigger('keydown.esc');
+      wrapper.vm.$nextTick(() => {
+        expect(wrapper.contains(SelectMenu)).toBe(false);
+        done();
+      });
+    });
+  });
+
   it('changing the value should close the SelectMenu', (done) => {
     wrapper.find('.vcs__picker').trigger('click');
 

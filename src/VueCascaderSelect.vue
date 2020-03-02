@@ -1,8 +1,8 @@
 <template>
   <div
     class="vcs"
-    v-click-outside="() => { isOpen = false; }"
-    @keydown.esc="() => { isOpen = false; }"
+    v-click-outside="handleClose"
+    @keydown.esc="handleClose"
   >
     <div
       class="vcs__picker"
@@ -86,6 +86,9 @@ export default {
     handleOpen(withKeyboard = false) {
       this.isOpen = !this.isOpen;
       this.withKeyboard = withKeyboard;
+    },
+    handleClose() {
+      this.isOpen = false;
     },
   },
   watch: {
