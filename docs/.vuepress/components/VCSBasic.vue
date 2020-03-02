@@ -1,7 +1,7 @@
 <template>
   <div class="vcs-basic">
     <VueCascaderSelect
-      @select="(val) => value = val"
+      @select="(selected) => value = selected.value"
       @clear="(val) => value = ''"
       :options="options"
       :placeholder="placeholder"

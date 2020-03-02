@@ -80,8 +80,8 @@ export default {
     };
   },
   methods: {
-    handleSelect(value) {
-      this.$emit('select', value);
+    handleSelect(option) {
+      this.$emit('select', option);
     },
     handleOpen(withKeyboard = false) {
       this.isOpen = !this.isOpen;

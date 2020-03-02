@@ -63,10 +63,11 @@ export default {
         selectable,
         onSelect,
         value,
+        label,
       } = this.$props;
 
       if (selectable && !disabled) {
-        onSelect(value);
+        onSelect({ label, value });
       }
     },
   },

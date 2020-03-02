@@ -7,7 +7,7 @@ Let's see the most basic usage of the component:
   <vue-cascader-select
     :options="options"
     @clear="(val) => value = ''"
-    @select="(val) => value = val"
+    @select="(selected) => value = selected.value"
     :value="value"
   />
 </template>

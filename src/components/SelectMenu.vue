@@ -62,6 +62,8 @@ export default {
     },
   },
   data() {
+    const { options, withKeyboard } = this.$props;
+
     return {
       nextMenu: {
         isOpen: false,
@@ -69,8 +71,8 @@ export default {
         value: '',
         withKeyboard: false,
       },
-      selectedOption: 0,
-      optionsLength: this.$props.options.length,
+      selectedOption: withKeyboard ? 0 : null,
+      optionsLength: options.length,
     };
   },
   mounted() {
@@ -80,6 +82,9 @@ export default {
   },
   methods: {
     handleOpenNextMenu(value, options, index, withKeyboard = false) {
+      this.selectedOption = index;
+      this.$refs.options[index].$el.focus();
+
       if (options && this.nextMenu.value !== value) {
         this.nextMenu = {
           isOpen: true,
@@ -87,9 +92,6 @@ export default {
           value,
           withKeyboard,
         };
-
-        this.selectedOption = index;
-        this.$refs.options[index].$el.focus();
       }
 
       if (options && this.$refs.childMenu) {
@@ -113,7 +115,9 @@ export default {
       };
 
       this.$nextTick(() => {
-        this.$refs.options[this.selectedOption].$el.focus();
+        if (this.selectedOption >= 0 && this.$refs.options[this.selectedOption]) {
+          this.$refs.options[this.selectedOption].$el.focus();
+        }
       });
     },
     moveOption(increment = false) {
@@ -130,6 +134,10 @@ export default {
   watch: {
     options() {
       this.resetNextMenu();
+
+      if (!this.$props.withKeyboard) {
+        this.selectedOption = null;
+      }
     },
   },
 };
