@@ -18,6 +18,9 @@
   <a href="https://codecov.io/gh/NeoCoast/vue-cascader-select">
     <img src="https://codecov.io/gh/NeoCoast/vue-cascader-select/branch/master/graph/badge.svg"/>
   </a>
+  <a href="https://packagequality.com/#?package=vue-cascader-select">
+    <img src="https://npm.packagequality.com/shield/vue-cascader-select.svg"/>
+  </a>
 </p>
 
 # Vue Cascader Select

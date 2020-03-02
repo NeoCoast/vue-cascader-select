@@ -1,8 +1,14 @@
 <template>
-  <div class="vcs" v-click-outside="() => { isOpen = false; }">
+  <div
+    class="vcs"
+    v-click-outside="() => { isOpen = false; }"
+    @keydown.esc="() => { isOpen = false; }"
+  >
     <div
       class="vcs__picker"
-      @click="isOpen = !isOpen"
+      @click="() => handleOpen(false)"
+      @keypress.enter="() => handleOpen(true)"
+      tabindex="0"
     >
       <input
         disabled
@@ -31,6 +37,7 @@
         v-if="isOpen"
         :onSelect="handleSelect"
         :options="options"
+        :withKeyboard="withKeyboard"
       />
     </transition>
   </div>
@@ -69,11 +76,16 @@ export default {
   data() {
     return {
       isOpen: false,
+      withKeyboard: false,
     };
   },
   methods: {
     handleSelect(value) {
       this.$emit('select', value);
+    },
+    handleOpen(withKeyboard = false) {
+      this.isOpen = !this.isOpen;
+      this.withKeyboard = withKeyboard;
     },
   },
   watch: {
@@ -85,6 +97,14 @@ export default {
 </script>
 
 <style>
+button {
+  padding: 0;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: unset;
+}
+
 .vcs {
   position: relative;
 }
@@ -92,6 +112,7 @@ export default {
 .vcs__picker {
   position: relative;
   display: flex;
+  width: 100%;
 }
 
 .vcs__picker input {
@@ -147,7 +168,6 @@ export default {
   cursor: pointer;
   font-size: 18px;
   opacity: 0.7;
-  outline: none;
   padding: 0 3px;
   transition: opacity 0.2s linear;
 }

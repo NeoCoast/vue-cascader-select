@@ -1,19 +1,24 @@
 <template>
-  <div
+  <button
     class="vcs__option"
     :class="{
       'vcs__option--active': active,
       'vcs__option--disabled': disabled,
+      'vsc__option--focused': focused,
     }"
-    @mouseenter="$emit('openMenu', value, options)"
+    @mouseenter="$emit('openMenu', value, options, index, false)"
     @click="handleSelection"
+    @keydown.right="$emit('openMenu', value, options, index, true)"
+    @keydown.left="$emit('closeMenu')"
+    @keydown.down="$emit('nextOption')"
+    @keydown.up="$emit('prevOption')"
   >
     <span>{{label}}</span>
     <arrow
       v-if="!isLeaf"
       direction="right"
     />
-  </div>
+  </button>
 </template>
 
 <script>
@@ -45,6 +50,11 @@ export default {
       type: Boolean,
       default: false,
     },
+    focused: {
+      type: Boolean,
+      default: false,
+    },
+    index: Number,
   },
   methods: {
     handleSelection() {
@@ -78,6 +88,14 @@ export default {
   padding: 5px 10px;
   cursor: pointer;
   transition: background 200ms linear;
+
+  /* Normalize button */
+  color: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  overflow: visible;
+  -webkit-appearance: button;
 }
 
 .vcs__option--active {
@@ -92,7 +110,12 @@ export default {
   margin-right: 10px;
 }
 
-.vcs__option:hover {
+.vcs__option:focus {
+  outline: none;
+}
+
+.vsc__option--focused {
   background: #ddd;
+  outline: none;
 }
 </style>
