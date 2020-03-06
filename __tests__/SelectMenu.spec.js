@@ -121,6 +121,7 @@ describe('SelectMenu.vue', () => {
     });
   });
 
+
   describe('should be able to navigate with keyboard', () => {
     let wrapper;
     beforeEach(() => {
@@ -208,6 +209,36 @@ describe('SelectMenu.vue', () => {
       wrapper.vm.$nextTick(() => {
         expect(optionsWrapper.at(2).element).toBe(document.activeElement);
         done();
+      });
+    });
+
+    it('should close childMenu', (done) => {
+      wrapper.vm.$nextTick(() => {
+        let optionsWrapper = wrapper.findAll(Option);
+        expect(optionsWrapper.length).toBe(3);
+
+        optionsWrapper.at(2).trigger('keydown.right');
+        wrapper.vm.$nextTick(() => {
+          expect(wrapper.findAll(SelectMenu).length).toBe(2);
+
+          optionsWrapper = wrapper.findAll(Option);
+          optionsWrapper.at(-1).trigger('keydown.right');
+
+          wrapper.vm.$nextTick(() => {
+            // Open grand child menu
+            expect(wrapper.findAll(SelectMenu).length).toBe(3);
+
+            optionsWrapper = wrapper.findAll(Option);
+
+            // Change opened child menu
+            optionsWrapper.at(0).trigger('keydown.right');
+            wrapper.vm.$nextTick(() => {
+              // Grand child menu shouldn't be rendered
+              expect(wrapper.findAll(SelectMenu).length).toBe(2);
+              done();
+            });
+          });
+        });
       });
     });
   });
