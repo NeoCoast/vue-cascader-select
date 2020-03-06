@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es-UY">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Uso básico | Vue Cascader Select</title>
+    <meta name="description" content="Documentación oficial de Vue Cascader Select">
+    <meta name="generator" content="VuePress 1.3.1">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <meta name="msapplication-TileColor" content="#3a0839">
+  <meta name="theme-color" content="#ffffff">
+    
+    <link rel="preload" href="/vue-cascader-select/assets/css/0.styles.f4313cdc.css" as="style"><link rel="preload" href="/vue-cascader-select/assets/js/app.29017e59.js" as="script"><link rel="preload" href="/vue-cascader-select/assets/js/2.5ad461c4.js" as="script"><link rel="preload" href="/vue-cascader-select/assets/js/11.0db3b72c.js" as="script"><link rel="preload" href="/vue-cascader-select/assets/js/4.9ea5e4e8.js" as="script"><link rel="prefetch" href="/vue-cascader-select/assets/js/10.3aa6c48e.js"><link rel="prefetch" href="/vue-cascader-select/assets/js/12.5d17b7b8.js"><link rel="prefetch" href="/vue-cascader-select/assets/js/13.459a9f9a.js"><link rel="prefetch" href="/vue-cascader-select/assets/js/14.33657fa8.js"><link rel="prefetch" href="/vue-cascader-select/assets/js/15.41887143.js"><link rel="prefetch" href="/vue-cascader-select/assets/js/16.46302545.js"><link rel="prefetch" href="/vue-cascader-select/assets/js/17.32352191.js"><link rel="prefetch" href="/vue-cascader-select/assets/js/18.99963106.js"><link rel="prefetch" href="/vue-cascader-select/assets/js/3.1e67a686.js"><link rel="prefetch" href="/vue-cascader-select/assets/js/5.c90c0b72.js"><link rel="prefetch" href="/vue-cascader-select/assets/js/6.4ce933b6.js"><link rel="prefetch" href="/vue-cascader-select/assets/js/7.0abcfb02.js"><link rel="prefetch" href="/vue-cascader-select/assets/js/8.9297883c.js"><link rel="prefetch" href="/vue-cascader-select/assets/js/9.7793695a.js">
+    <link rel="stylesheet" href="/vue-cascader-select/assets/css/0.styles.f4313cdc.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/vue-cascader-select/es/" class="home-link router-link-active"><img src="/vue-cascader-select/logo.svg" alt="Vue Cascader Select" class="logo"> <span class="site-name can-hide">Vue Cascader Select</span></a> <div class="links"><!----> <nav class="nav-links can-hide"><div class="nav-item"><a href="/vue-cascader-select/es/guide/" class="nav-link router-link-active">
+  Guía
+</a></div><div class="nav-item"><a href="https://github.com/NeoCoast/vue-cascader-select" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Select language" class="dropdown-title"><span class="title">Idiomas</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/vue-cascader-select/guide/basic_usage.html" class="nav-link">
+  English
+</a></li><li class="dropdown-item"><!----> <a href="/vue-cascader-select/es/guide/basic_usage.html" class="nav-link router-link-exact-active router-link-active">
+  Español
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/vue-cascader-select/es/guide/" class="nav-link router-link-active">
+  Guía
+</a></div><div class="nav-item"><a href="https://github.com/NeoCoast/vue-cascader-select" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Select language" class="dropdown-title"><span class="title">Idiomas</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/vue-cascader-select/guide/basic_usage.html" class="nav-link">
+  English
+</a></li><li class="dropdown-item"><!----> <a href="/vue-cascader-select/es/guide/basic_usage.html" class="nav-link router-link-exact-active router-link-active">
+  Español
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><a href="/vue-cascader-select/es/guide/" class="sidebar-heading clickable router-link-active open"><span>Guía</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/vue-cascader-select/es/guide/installation.html" class="sidebar-link">Instalación</a></li><li><a href="/vue-cascader-select/es/guide/basic_usage.html" class="active sidebar-link">Uso básico</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/vue-cascader-select/es/guide/basic_usage.html#props" class="sidebar-link">Props</a></li><li class="sidebar-sub-header"><a href="/vue-cascader-select/es/guide/basic_usage.html#events" class="sidebar-link">Events</a></li></ul></li><li><a href="/vue-cascader-select/es/guide/theming.html" class="sidebar-link">Personalización</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="uso-basico"><a href="#uso-basico" class="header-anchor">#</a> Uso básico</h1> <p>Veamos el uso más básico del componente:</p> <div class="language-vue extra-class"><pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>vue-cascader-select</span>
+    <span class="token attr-name">:options</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>options<span class="token punctuation">&quot;</span></span>
+    <span class="token attr-name">@clear</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>(val) =&gt; value = ''<span class="token punctuation">&quot;</span></span>
+    <span class="token attr-name">@select</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>(selected) =&gt; value = selected.value<span class="token punctuation">&quot;</span></span>
+    <span class="token attr-name">:value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>value<span class="token punctuation">&quot;</span></span>
+  <span class="token punctuation">/&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>¡Esto renderizará el <code>cascader-select</code> con las opciones correspondientes, y dejará que el usuario seleccione cualquiera de ellas!</p> <div class="vcs-basic"><div class="vcs"><div tabindex="0" class="vcs__picker"><input disabled="disabled" placeholder="Seleccione una opción..." value=""> <!----> <div class="vcs__arrow-container"><i class="vcs__arrow down" style="border-color:#ccc;"></i></div></div> <!----></div></div> <h2 id="props"><a href="#props" class="header-anchor">#</a> Props</h2> <table><thead><tr><th>Nombre</th> <th>Tipo</th> <th style="text-align:center;">Requerido</th> <th>Valor por defecto</th></tr></thead> <tbody><tr><td>options</td> <td>Array</td> <td style="text-align:center;">✅</td> <td></td></tr> <tr><td>placeholder</td> <td>String</td> <td style="text-align:center;"></td> <td>'Please select...'</td></tr> <tr><td>value</td> <td>String</td> <td style="text-align:center;">✅</td> <td></td></tr></tbody></table> <h3 id="options"><a href="#options" class="header-anchor">#</a> options</h3> <p>Opciones que mostrará el <code>cascader-select</code>. Esta prop es un arreglo de objetos, en los cuales las claves <code>label</code> y <code>value</code> son requeridas, mientras que <code>options</code>, <code>selectable</code> y <code>disabled</code> son opcionales.</p> <p>Veamos un ejemplo:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token punctuation">[</span>
+  <span class="token punctuation">{</span>
+    label<span class="token operator">:</span> <span class="token string">'Frontend'</span><span class="token punctuation">,</span>
+    value<span class="token operator">:</span> <span class="token string">'Frontend'</span><span class="token punctuation">,</span>
+    disabled<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    options<span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span> label<span class="token operator">:</span> <span class="token string">'Vue'</span><span class="token punctuation">,</span> value<span class="token operator">:</span> <span class="token string">'Vue'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span> label<span class="token operator">:</span> <span class="token string">'React'</span><span class="token punctuation">,</span> value<span class="token operator">:</span> <span class="token string">'React'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span> label<span class="token operator">:</span> <span class="token string">'Svelte'</span><span class="token punctuation">,</span> value<span class="token operator">:</span> <span class="token string">'Svelte'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    label<span class="token operator">:</span> <span class="token string">'Backend'</span><span class="token punctuation">,</span>
+    value<span class="token operator">:</span> <span class="token string">'Backend'</span><span class="token punctuation">,</span>
+    disabled<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    options<span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span> label<span class="token operator">:</span> <span class="token string">'Ruby on Rails'</span><span class="token punctuation">,</span> value<span class="token operator">:</span> <span class="token string">'Ruby on Rails'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span> label<span class="token operator">:</span> <span class="token string">'NodeJS'</span><span class="token punctuation">,</span> value<span class="token operator">:</span> <span class="token string">'NodeJS'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span> label<span class="token operator">:</span> <span class="token string">'Elixir'</span><span class="token punctuation">,</span> value<span class="token operator">:</span> <span class="token string">'Elixir'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="events"><a href="#events" class="header-anchor">#</a> Events</h2> <table><thead><tr><th>Nombre</th> <th>Parámetros</th> <th style="text-align:center;">¿Cuándo?</th></tr></thead> <tbody><tr><td>clear</td> <td></td> <td style="text-align:center;">Al clickear en el ícono de la cruz</td></tr> <tr><td>select</td> <td>value</td> <td style="text-align:center;">Al seleccionar una opción</td></tr></tbody></table></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Última actualización:</span> <span class="time">3/6/2020, 4:13:39 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/vue-cascader-select/es/guide/installation.html" class="prev">
+        Instalación
+      </a></span> <span class="next"><a href="/vue-cascader-select/es/guide/theming.html">
+        Personalización
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/vue-cascader-select/assets/js/app.29017e59.js" defer></script><script src="/vue-cascader-select/assets/js/2.5ad461c4.js" defer></script><script src="/vue-cascader-select/assets/js/11.0db3b72c.js" defer></script><script src="/vue-cascader-select/assets/js/4.9ea5e4e8.js" defer></script>
+  </body>
+</html>
