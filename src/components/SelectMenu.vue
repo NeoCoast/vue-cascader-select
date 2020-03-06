@@ -4,9 +4,12 @@
     :class="{ 'vcs__select-menu__not-main': notMain }"
   >
     <Option
-      v-for="option in options"
+      v-for="(option, index) in options"
+      ref="options"
       :active="option.value === nextMenu.value"
       :disabled="option.disabled"
+      :focused="index === selectedOption"
+      :index="index"
       :key="option.value"
       :label="option.label"
       :onSelect="onSelect"
@@ -14,6 +17,9 @@
       :selectable="option.selectable"
       :value="option.value"
       @openMenu="handleOpenNextMenu"
+      @closeMenu="handleCloseMenu"
+      @nextOption="moveOption(true)"
+      @prevOption="moveOption(false)"
     />
 
     <transition name="vcs__fade">
@@ -23,6 +29,7 @@
         :notMain="true"
         :onSelect="onSelect"
         :options="nextMenu.options"
+        :withKeyboard="nextMenu.withKeyboard"
       />
     </transition>
   </div>
@@ -49,28 +56,55 @@ export default {
       default: () => [],
       validator: value => validateOptions(value),
     },
+    withKeyboard: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
+    const { options, withKeyboard } = this.$props;
+
     return {
       nextMenu: {
         isOpen: false,
         options: false,
         value: '',
+        withKeyboard: false,
       },
+      selectedOption: withKeyboard ? 0 : null,
+      optionsLength: options.length,
     };
   },
+  mounted() {
+    if (this.$props.withKeyboard) {
+      this.$refs.options[0].$el.focus();
+    }
+  },
   methods: {
-    handleOpenNextMenu(value, options) {
+    handleOpenNextMenu(value, options, index, withKeyboard = false) {
+      this.selectedOption = index;
+      this.$refs.options[index].$el.focus();
+
       if (options && this.nextMenu.value !== value) {
         this.nextMenu = {
           isOpen: true,
           options,
           value,
+          withKeyboard,
         };
       }
 
-      if (this.$refs.childMenu) {
+      if (options && this.$refs.childMenu) {
         this.$refs.childMenu.resetNextMenu();
+      }
+
+      if (!options) {
+        this.resetNextMenu();
+      }
+    },
+    handleCloseMenu() {
+      if (this.$parent && this.$parent.resetNextMenu) {
+        this.$parent.resetNextMenu();
       }
     },
     resetNextMenu() {
@@ -79,11 +113,31 @@ export default {
         options: [],
         value: '',
       };
+
+      this.$nextTick(() => {
+        if (this.selectedOption >= 0 && this.$refs.options[this.selectedOption]) {
+          this.$refs.options[this.selectedOption].$el.focus();
+        }
+      });
+    },
+    moveOption(increment = false) {
+      const { selectedOption, optionsLength } = this;
+
+      let newSelectedOption = increment ? selectedOption + 1 : selectedOption - 1;
+      newSelectedOption = newSelectedOption >= 0 ? newSelectedOption : optionsLength - 1;
+      newSelectedOption %= optionsLength;
+
+      this.selectedOption = newSelectedOption;
+      this.$refs.options[newSelectedOption].$el.focus();
     },
   },
   watch: {
     options() {
       this.resetNextMenu();
+
+      if (!this.$props.withKeyboard) {
+        this.selectedOption = null;
+      }
     },
   },
 };
