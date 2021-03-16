@@ -1,5 +1,6 @@
 <template>
   <button
+    type="button"
     class="vcs__option"
     :class="{
       'vcs__option--active': active,
